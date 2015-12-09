@@ -40,6 +40,14 @@ app.get('/', function(req, res) {
 //get an instance of the express router
 var apiRouter = express.Router();
 
+//middleware to use for all requests
+apiRouter.use(function(req, res, next) {
+	//do logging
+	console.log('Somebody just came to our app!');
+	//this is where to authenticate users
+	next(); //make sure we go to the next routes and don't stop here
+});
+
 //test route making sure everything works
 //accessed at Get http://localhost:8080/api
 apiRouter.get('/', function(req, res) {

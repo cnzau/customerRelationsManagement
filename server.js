@@ -7,7 +7,7 @@ var express = require('express'),			//calls express
 	morgan = require('morgan'),				//used to see requests
 	mongoose = require('mongoose'),			//works with our DB
 	port = process.env.PORT || 8080,		//sets our app's port
-	user = require('./app/models/user');	//pulls in user.js
+	User = require('./app/models/user');	//pulls in user.js
 
 //connect to DB
 var localDb = 'mongodb://localhost:27017/crm',
@@ -55,6 +55,33 @@ apiRouter.get('/', function(req, res) {
 });
 
 //we can have more routes for our api here
+//on routes that end in /users
+apiRouter.route('/users')
+
+	//create a user (accessed at POST http://localhost:8080/api/users)
+	.post(function(req, res) {
+
+		//create a new instance of the User model
+		var user = new User();
+
+		//set the users information (comes from the request)
+		user.name = req.body.name;
+		user.username = req.body.username;
+		user.password = req.body.password;
+
+		//save the user and check for errors
+		user.save(function(err) {
+			if (err){
+				//duplicate entry
+				if (err.code == 11000)
+					return res.json({ success: false, message: 'A user with that username already exists.' });
+				else
+					return res.send(err);
+			}
+
+			res.json({ message: 'User created!' })
+		});
+	})
 
 //Register our routes:
 //all our routes will be prefixed with /api

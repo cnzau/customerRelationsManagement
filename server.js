@@ -6,7 +6,13 @@ var express = require('express'),			//calls express
 	bodyParser = require('body-parser'),	//get body-parser
 	morgan = require('morgan'),				//used to see requests
 	mongoose = require('mongoose'),			//works with our DB
-	port = process.env.PORT || 8080;		//sets our app's port
+	port = process.env.PORT || 8080,		//sets our app's port
+	user = require('./app/models/user');	//pulls in user.js
+
+//connect to DB
+var localDb = 'mongodb://localhost:27017/crm',
+	remoteDb = '';
+mongoose.connect(localDb);
 
 //App config:
 //Use body parser to grab infor' from POST req'

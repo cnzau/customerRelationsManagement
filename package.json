@@ -1,0 +1,18 @@
+{
+  "name": "customer-relationship-management",
+  "version": "1.0.0",
+  "description": "First MEAN stack API. Learning from MEAN Machine by Chris Sevillejaand HollyLloyd",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cnzau",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",	//hash our passwords
+    "body-parser": "^1.14.1",	//Lets us pull POST content from our HTTP req' so as we can do create a user etc
+    "express": "^4.13.3",		//Node framework
+    "mongoose": "^4.2.10",		//ODM we will use to communicate with our MongoDB
+    "morgan": "^1.6.1"			//logs all requests to console
+  }
+}

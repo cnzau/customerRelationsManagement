@@ -83,6 +83,16 @@ apiRouter.route('/users')
 		});
 	})
 
+	//get all users(accessed at GET http://localhost:8080/api/users)
+	.get(function(req, res) {
+		User.find(function(err, users){
+			if (err) res.send(err);
+
+			//return the users
+			res.json(users);
+		});
+	});
+
 //Register our routes:
 //all our routes will be prefixed with /api
 app.use('/api', apiRouter);

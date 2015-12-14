@@ -9,10 +9,20 @@
   "author": "cnzau",
   "license": "ISC",
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",	//hash our passwords
-    "body-parser": "^1.14.1",	//Lets us pull POST content from our HTTP req' so as we can do create a user etc
-    "express": "^4.13.3",		//Node framework
-    "mongoose": "^4.2.10",		//ODM we will use to communicate with our MongoDB
-    "morgan": "^1.6.1"			//logs all requests to console
+    "//": [
+      "COMMENTS",
+      "bcrypt-nodejs =>hash our passwords",
+      "body-parser =>Lets us pull POST content from our HTTP req' so as we can do create a user etc",
+      "express =>Node framework",
+      "jsonwebtoken =>Enables us to create and verify tokens",
+      "mongoose =>ODM we will use to communicate with our MongoDB",
+      "morgan =>logs all requests to console"
+    ],
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "jsonwebtoken": "^5.4.1",
+    "mongoose": "^4.2.10",
+    "morgan": "^1.6.1"
   }
 }

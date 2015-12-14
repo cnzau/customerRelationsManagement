@@ -7,7 +7,9 @@ var express = require('express'),			//calls express
 	morgan = require('morgan'),				//used to see requests
 	mongoose = require('mongoose'),			//works with our DB
 	port = process.env.PORT || 8080,		//sets our app's port
-	User = require('./app/models/user');	//pulls in user.js
+	User = require('./app/models/user'),	//pulls in user.js
+	jwt = require('jsonwebtoken'),			//grabs the jsonwebtoken package
+	superSecret = "iloveprogrammingliving";	//a secret string to create tokens with
 
 //connect to DB
 var localDb = 'mongodb://localhost:27017/crm',

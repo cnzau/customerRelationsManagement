@@ -214,6 +214,11 @@ apiRouter.route('/users/:user_id')
 		});
 	})
 
+//api endpoint to get user information
+apiRouter.get('/me', function(req, res) {
+	res.send(req.decoded);
+});
+
 //Register our routes:
 //all our routes will be prefixed with /api
 app.use('/api', apiRouter);

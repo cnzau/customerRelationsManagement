@@ -13,8 +13,8 @@ var express = require('express'),			//calls express
 
 //connect to DB
 var localDb = 'mongodb://localhost:27017/crm',
-	remoteDb = '';
-mongoose.connect(localDb);
+	remoteDb = 'mongodb://p_user:Re9U9e@ds027835.mongolab.com:27835/mobwebz';
+mongoose.connect(remoteDb);
 
 //App config:
 //Use body parser to grab infor' from POST req'

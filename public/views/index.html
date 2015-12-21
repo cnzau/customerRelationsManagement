@@ -24,7 +24,7 @@
 	    <script src="js/app.js"></script>
 	    <script src="js/app.routes.js"></script>
 	</head>
-	<body class="container">
+	<body class="container" ng-app="routerApp" ng-controller="mainController as main">
 	 
 	    <!-- HEADER AND NAVBAR -->
 	    <header>
@@ -43,11 +43,11 @@
 	 
 	    <!-- MAIN CONTENT AND INJECTED VIEWS -->
 	    <main>
-	 
-	    	stuff goes here!
-	 
+
 	     	<!-- angular templating will go here -->
 	     	<!-- this is where content will be injected -->
+
+	     	<div ng-view></div>
 	 
 	    </main>
 	 

@@ -1,5 +1,5 @@
 //name our angular app
-angular.module('routerApp', ['routerRoutes'])
+angular.module('routerApp', ['routerRoutes', 'ngAnimate'])
 
 //create controllers
 //controller for the entire site

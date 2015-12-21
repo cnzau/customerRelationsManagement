@@ -9,7 +9,9 @@ var express = require('express'),			//calls express
 	port = process.env.PORT || 8080,		//sets our app's port
 	User = require('./app/models/user'),	//pulls in user.js
 	jwt = require('jsonwebtoken'),			//grabs the jsonwebtoken package
-	superSecret = "iloveprogrammingliving";	//a secret string to create tokens with
+	superSecret = "iloveprogrammingliving",	//a secret string to create tokens with
+	//get whats needed for front end angular
+	path = require('path');
 
 //connect to DB
 var localDb = 'mongodb://localhost:27017/crm',
@@ -32,13 +34,16 @@ app.use(function(req, res, next) {
 //log all req' to the console
 app.use(morgan('dev'));
 
-//Routes for our API ********************************************
+//set public folder to serve public assets
+app.use(express.static(__dirname + '/public'))
 
-//basic route(home page)
+
+//basic route(home page) //set up our one route to the index.html file
 app.get('/', function(req, res) {
-	res.send('Welcome to the home page!');
+	res.sendFile(path.join(__dirname + '/public/views/index.html'));
 });
 
+//Routes for our API ********************************************
 //get an instance of the express router
 var apiRouter = express.Router();
 

@@ -6,15 +6,12 @@ var express = require('express'),			//calls express
 	bodyParser = require('body-parser'),	//get body-parser
 	morgan = require('morgan'),				//used to see requests
 	mongoose = require('mongoose'),			//works with our DB
-	port = process.env.PORT || 8080,		//sets our app's port
+	config = require('./config'),			//use config.js file
 	User = require('./app/models/user'),	//pulls in user.js
-	jwt = require('jsonwebtoken'),			//grabs the jsonwebtoken package
-	superSecret = "iloveprogrammingliving";	//a secret string to create tokens with
-
-//connect to DB
-var localDb = 'mongodb://localhost:27017/crm',
-	remoteDb = 'mongodb://p_user:Re9U9e@ds027835.mongolab.com:27835/mobwebz';
-mongoose.connect(remoteDb);
+	jwt = require('jsonwebtoken');			//grabs the jsonwebtoken package
+	
+//connect to DB local or remote as set in config file
+mongoose.connect(config.database);
 
 //App config:
 //Use body parser to grab infor' from POST req'
@@ -224,5 +221,5 @@ apiRouter.get('/me', function(req, res) {
 app.use('/api', apiRouter);
 
 //Start the server*************************************************
-app.listen(port);
-console.log('Magic happens on port ' + port);
+app.listen(config.port);
+console.log('Magic happens on port ' + config.port);

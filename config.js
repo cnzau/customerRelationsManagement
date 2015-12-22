@@ -1,7 +1,7 @@
 module.exports = {
 	'port' : process.env.PORT || 8080,		//sets our app's port
-	'database' : 'mongodb://p_user:Re9U9e@ds027835.mongolab.com:27835/mobwebz';
-	'secret' : 'iloveprogrammingliving';	//a secret string to create tokens with
+	'database' : 'mongodb://p_user:Re9U9e@ds027835.mongolab.com:27835/mobwebz',
+	'secret' : 'iloveprogrammingliving'	//a secret string to create tokens with
 };
 
 //connect to DB

@@ -7,12 +7,8 @@ var express = require('express'),			//calls express
 	morgan = require('morgan'),				//used to see requests
 	mongoose = require('mongoose'),			//works with our DB
 	config = require('./config'),			//use config.js file
-	User = require('./app/models/user'),	//pulls in user.js
-	jwt = require('jsonwebtoken'),			//grabs the jsonwebtoken package
-	apiRoutes = require('./app/routes/api')(app, express);
-	
-//connect to DB local or remote as set in config file
-mongoose.connect(config.database);
+	path = require('path');					//reqired to pass a HTML file
+
 
 //App config:
 //Use body parser to grab infor' from POST req'
@@ -29,17 +25,26 @@ app.use(function(req, res, next) {
 
 //log all req' to the console
 app.use(morgan('dev'));
+		
+//connect to DB local or remote as set in config file
+mongoose.connect(config.database);
 
-//Routes for our API ********************************************
+//set static files location
+//used for routes that our frontend will make
+app.use(express.static(__dirname + '/public'));
 
-//basic route(home page)
-app.get('/', function(req, res) {
-	res.send('Welcome to the home page!');
+//Register our routes:*********************************************
+//all routes to be prefixed with /api****************
+var apiRoutes = require('./app/routes/api')(app, express);
+app.use('/api', apiRoutes);
+
+//Main CatchAll route********************************
+//Send users to frontend*****************************
+//has to be registered after our routes so as to only catch routes not handled by node
+app.get('*', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 });
 
-//Register our routes:
-//all our routes will be prefixed with /api
-app.use('/api', apiRoutes);
 
 //Start the server*************************************************
 app.listen(config.port);

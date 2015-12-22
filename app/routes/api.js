@@ -1,5 +1,5 @@
-var User = require('../models/user'),
-	jwt = require('jsonwebtoken'),
+var User = require('../models/user'),	//pulls in user.js
+	jwt = require('jsonwebtoken'),		//grabs the jsonwebtoken package
 	config = require('../../config');
 	superSecret = config.secret; 		//supersecret for creating tokens
 

@@ -41,7 +41,7 @@
    	// get the logged in user
    	authFactory.getUser = function() {
     	if (AuthToken.getToken())
-       		return $http.get('/api/me');
+       		return $http.get('/api/me', { cache: true });	//checks & returns cached info else makes API call
      	else
        		return $q.reject({ message: 'User has no token.' });    
    	};

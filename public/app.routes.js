@@ -8,6 +8,13 @@ angular.module('app.routes', ['ngRoute'])
 		.when('/', {
         	templateUrl : 'app/views/pages/home.html'
      	});
+
+     	//login page route
+     	.when('/login', {
+     		templateUrl : 'app/views/pages/login.html',
+     		controller : 'mainController',
+     		controllerAs: 'login'
+     	})
  
    		// get rid of the hash in the URL
    			$locationProvider.html5Mode(true);

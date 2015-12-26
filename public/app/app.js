@@ -5,4 +5,11 @@ angular.module('userApp', [
 	'mainCtrl',			//encompass our main view
 	'userCtrl',			//have controllers for all our user management pages
 	'userService'		//service file
-]);
+])
+	
+	//application configuration to integrate token into requests
+	.config(function($httpProvider) {
+
+		//attach our auth interceptor to http requests
+		$httpProvider.interceptors.push('AuthInterceptor');
+	});

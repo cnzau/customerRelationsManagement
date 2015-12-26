@@ -39,4 +39,26 @@ angular.module('userCtrl', ['userService'])
 						});
 				});
 		};
+
+		//variable to hide/show elemnts of the view
+		//differentiates between create or edit pages
+		vm.type = 'create';
+
+		//function to create a user
+		vm.saveUser = function() {
+			vm.processing = true;
+			
+			//clear the message
+			vm.message = '';
+
+			//use the create function in the userService
+			User.create(vm.userData)
+				.success(function(data) {
+					vm.processing = false;
+
+					//clear the form
+					vm.userData = {};
+					vm.message = data.message;
+				});
+		};
 	})

@@ -1,3 +1,5 @@
+angular.module('authService', [])
+
 // ===================================================
 // auth factory to login and get information
 // inject $http for communicating with the API

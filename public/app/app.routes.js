@@ -29,7 +29,14 @@ angular.module('app.routes', ['ngRoute'])
      		templateUrl: 'app/views/pages/users/single.html',
      		controller: 'userCreateController',
      		controllerAs: 'user'
-     	});
+     	})
+
+        //page to edit a user
+        .when('/users/:user_id', {
+            templateUrl: 'app/views/pages/users/single.html',
+            controller: 'userEditController',
+            controllerAs: 'user'
+        });
  
    		// get rid of the hash in the URL
    			$locationProvider.html5Mode(true);

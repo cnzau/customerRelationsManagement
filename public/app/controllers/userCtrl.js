@@ -61,7 +61,7 @@ angular.module('userCtrl', ['userService'])
 					vm.message = data.message;
 				});
 		};
-	});
+	})
 
 	// controller applied to user edit page
 	.controller('userEditController', function($routeParams, User) {

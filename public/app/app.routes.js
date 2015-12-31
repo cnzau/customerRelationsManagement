@@ -27,7 +27,7 @@ angular.module('app.routes', ['ngRoute'])
      	//same view as edit page
      	.when('/users/create', {
      		templateUrl: 'app/views/pages/users/single.html',
-     		controller: 'userCreateController',
+     		controller: 'userController',
      		controllerAs: 'user'
      	})
 

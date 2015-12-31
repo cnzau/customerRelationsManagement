@@ -1,0 +1,11 @@
+<div class="jumbotron text-center">
+    <h1>Customer Relations Management</h1>
+ 
+    <p> An approach to managing a company’s interaction with current and future customers. </p>
+    <p><mark>NOTE:</mark><small>This app was created while learning how to create a MEAN stack application. </small></p>
+
+    <div ng-if="!main.loggedIn">
+        <button ng-if="!user.loggedIn" class="button btn btn-primary text-center" ng-click="main.doLogout()"> Login </button>
+    </div>
+
+</div>

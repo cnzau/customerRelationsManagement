@@ -13,8 +13,8 @@ angular.module('mainCtrl', [])
  
      		// get user information on route change
      		Auth.getUser()
-       			.success(function(data) {
-         			vm.user = data;
+       			.then(function(response) {
+         			vm.user = response.data;
        			});
    		});  
  
@@ -27,14 +27,15 @@ angular.module('mainCtrl', [])
  
      		// call the Auth.login() function
      		Auth.login(vm.loginData.username, vm.loginData.password)
-       			.success(function(data) {
+       			.then(function(response) {
        				vm.processing = false;
  
          			// if a user successfully logs in, redirect to users page
-         			if (data.success)
+         			if (response.data.success){
+                vm.logedIn = true;
          				$location.path('/users');
-         			else
-         				vm.error = data.message;
+              }	else
+         				vm.error = response.data.message;
        			});
    		};
  

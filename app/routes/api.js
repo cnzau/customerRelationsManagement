@@ -174,7 +174,7 @@ module.exports = function(app, express) {
 		//delete the user with this id
 		//(accessed at DELETE http://localhost:8080/api/users/:user_id)
 		.delete(function(req, res) {
-			if (req.params.user_id !== '56dd289c050f51033bfdd9ca')
+			if (req.params.user_id !== '56dd72f454c0415b48cb598b')
 
 				User.remove({
 					_id: req.params.user_id

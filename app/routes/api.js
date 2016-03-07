@@ -174,13 +174,17 @@ module.exports = function(app, express) {
 		//delete the user with this id
 		//(accessed at DELETE http://localhost:8080/api/users/:user_id)
 		.delete(function(req, res) {
-			User.remove({
-				_id: req.params.user_id
-			}, function(err, user) {
-				if (err) return res.send(err);
+			if (req.params.user_id !== '56dd289c050f51033bfdd9ca')
 
-				res.json({ message: 'Succefully deleted' });
-			});
+				User.remove({
+					_id: req.params.user_id
+				}, function(err, user) {
+					if (err) return res.send(err);
+
+					res.json({ message: 'Succefully deleted' });
+				});
+			else
+				res.json({ message: 'Cannot Delete Administrator' });
 		})
 
 	//api endpoint to get user information

@@ -8,6 +8,14 @@ header .navbar    {
  	border-radius:0;
 }
 
+div.navbar.navbar-inverse {
+	margin: 0;
+}
+
+a.navbar-brand {
+	padding-top: 15px;
+}
+
 /* ANIMATIONS
  ====================== */
 .spinner {

@@ -6,6 +6,8 @@ padding-top:30px;
  ===================== */
 header .navbar    { 
  	border-radius:0;
+ 	position: fixed;
+ 	width: 100%;
 }
 
 div.navbar.navbar-inverse {
@@ -14,6 +16,17 @@ div.navbar.navbar-inverse {
 
 a.navbar-brand {
 	padding-top: 15px;
+}
+
+.navbar-inverse .navbar-text {
+    color: #000000;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #ffffff;
+}
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
 }
 
 /* ANIMATIONS
